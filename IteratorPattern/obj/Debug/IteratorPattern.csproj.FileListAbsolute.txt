@@ -1,0 +1,10 @@
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\bin\Debug\IteratorPattern.exe.config
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\bin\Debug\IteratorPattern.exe
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\bin\Debug\IteratorPattern.pdb
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.csprojResolveAssemblyReference.cache
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.Properties.Resources.resources
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.csproj.GenerateResource.Cache
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.csproj.CoreCompileInputs.cache
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.exe
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.pdb
+D:\Users\GenTer\Google Drive\Course Work\Fall 2017-2018\Design Patterns\IteratorPattern\IteratorPattern\obj\Debug\IteratorPattern.ClientForm.resources
