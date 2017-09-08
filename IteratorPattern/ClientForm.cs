@@ -13,7 +13,7 @@ namespace IteratorPattern
 {
     public partial class ClientForm : Form
     {
-        ConcreteTree<int> tree;
+        ConcreteTree<int> tree = new ConcreteTree<int>();
 
         public ClientForm()
         {
@@ -49,58 +49,38 @@ namespace IteratorPattern
 
         private void InorderTraverseButton_Click(object sender, EventArgs e)
         {
-            if (IsValidTree())
+            InorderListBox.Items.Clear();
+
+            InorderIterator<int> inorder = tree.CreateInorderIterator();
+
+            for (inorder.First(); !inorder.IsDone(); inorder.Next())
             {
-                InorderListBox.Items.Clear();
-
-                InorderIterator<int> inorder = tree.CreateInorderIterator();
-
-                InorderListBox.Items.Add(inorder.First());
-
-                while (!inorder.IsDone())
-                {
-                    InorderListBox.Items.Add(inorder.Next());
-                }
+                InorderListBox.Items.Add(inorder.CurrentItem());
             }
         }
 
         private void PreorderTraverseButton_Click(object sender, EventArgs e)
         {
-            if (IsValidTree())
+            PreorderListBox.Items.Clear();
+
+            PreorderIterator<int> preorder = tree.CreatePreorderIterator();
+
+            for (preorder.First(); !preorder.IsDone(); preorder.Next())
             {
-                PreorderListBox.Items.Clear();
-
-                PreorderIterator<int> preorder = tree.CreatePreorderIterator();
-
-                PreorderListBox.Items.Add(preorder.First());
-
-                while (!preorder.IsDone())
-                {
-                    PreorderListBox.Items.Add(preorder.Next());
-                }
+                PreorderListBox.Items.Add(preorder.CurrentItem());
             }
         }
 
         private void PostorderTraversalButton_Click(object sender, EventArgs e)
         {
-            if (IsValidTree())
+            PostorderListBox.Items.Clear();
+
+            PostorderIterator<int> postorder = tree.CreatePostorderIterator();
+
+            for(postorder.First(); !postorder.IsDone(); postorder.Next())
             {
-                PostorderListBox.Items.Clear();
-
-                PostorderIterator<int> postorder = tree.CreatePostorderIterator();
-
-                PostorderListBox.Items.Add(postorder.First());
-
-                while (!postorder.IsDone())
-                {
-                    PostorderListBox.Items.Add(postorder.Next());
-                }
+                PostorderListBox.Items.Add(postorder.CurrentItem());
             }
-        }
-
-        private bool IsValidTree()
-        {
-            return tree != null && tree.Nodes.Count > 0;
         }
     }
 }

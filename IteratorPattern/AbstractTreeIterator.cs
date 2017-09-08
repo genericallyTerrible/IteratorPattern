@@ -15,6 +15,7 @@ namespace IteratorPattern
         protected ConcreteTree<T> tree;
 
         protected int index = 0;
+        protected int exploredNodes;
         private int ParentIndex => (int)(Math.Ceiling((double)index / 2) - 1);
         private int LeftChildIndex => ((index * 2) + 1);
         private int RightChildIndex => ((index * 2) + 2);
@@ -71,7 +72,6 @@ namespace IteratorPattern
             }
         }
 
-
         public AbstractTreeIterator(ConcreteTree<T> tree)
         {
             this.tree = tree;
@@ -80,6 +80,11 @@ namespace IteratorPattern
         public override T CurrentItem()
         {
             return tree.Nodes[index];
+        }
+
+        public override bool IsDone()
+        {
+            return exploredNodes >= tree.Nodes.Count;
         }
 
         protected void TraverseToParent()

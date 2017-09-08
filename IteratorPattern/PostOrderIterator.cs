@@ -9,27 +9,22 @@ namespace IteratorPattern
     public class PostorderIterator<T> : AbstractTreeIterator<T>
     {
 
-        private int exploredNodes;
-
         public PostorderIterator(ConcreteTree<T> tree) : base(tree)
         {
             First();
         }
 
-        public override T First()
+        public override void First()
         {
-            exploredNodes = 1;
-            int firstIndex = (int)(PreviousPowerOf2((uint)tree.Nodes.Count) - 1);
-            index = firstIndex;
-            return tree.Nodes[index];
+            exploredNodes = 0;
+            if (tree.Nodes.Count > 0)
+            {
+                int firstIndex = (int)(PreviousPowerOf2((uint)tree.Nodes.Count) - 1);
+                index = firstIndex;
+            }
         }
 
-        public override bool IsDone()
-        {
-            return exploredNodes == tree.Nodes.Count;
-        }
-
-        public override T Next()
+        public override void Next()
         {
             if (!IsDone())
             {
@@ -43,7 +38,6 @@ namespace IteratorPattern
                 }
 
                 exploredNodes++;
-                return CurrentItem();
             }
             else
             {
@@ -53,13 +47,16 @@ namespace IteratorPattern
 
         private void CheckAndTraverseToParent()
         {
-            TraverseToParent();
-            if (HasRightChild)
+            if (HasParent)
             {
-                TraverseToRightChild();
-                while (HasLeftChild)
+                TraverseToParent();
+                if (HasRightChild)
                 {
-                    TraverseToLeftChild();
+                    TraverseToRightChild();
+                    while (HasLeftChild)
+                    {
+                        TraverseToLeftChild();
+                    }
                 }
             }
         }

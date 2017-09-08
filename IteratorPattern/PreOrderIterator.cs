@@ -8,25 +8,18 @@ namespace IteratorPattern
 {
     public class PreorderIterator<T> : AbstractTreeIterator<T>
     {
-        private int exploredNodes;
 
         public PreorderIterator(ConcreteTree<T> tree) : base(tree)
         {
             First();
         }
 
-        public override T First()
+        public override void First()
         {
-            exploredNodes = 1;
-            return tree.Nodes[0];
+            exploredNodes = 0;
         }
 
-        public override bool IsDone()
-        {
-            return exploredNodes == tree.Nodes.Count;
-        }
-
-        public override T Next()
+        public override void Next()
         {
             if (!IsDone())
             {
@@ -40,7 +33,6 @@ namespace IteratorPattern
                 }
 
                 exploredNodes++;
-                return CurrentItem();
             }
             else
             {
@@ -50,22 +42,25 @@ namespace IteratorPattern
 
         private void CheckAndTraverseToParent()
         {
-            if (IsLeftChild)
+            if (HasParent)
             {
-                TraverseToParent();
-                if (HasRightChild)
+                if (IsLeftChild)
                 {
-                    TraverseToRightChild();
+                    TraverseToParent();
+                    if (HasRightChild)
+                    {
+                        TraverseToRightChild();
+                    }
+                    else
+                    {
+                        CheckAndTraverseToParent();
+                    }
                 }
                 else
                 {
+                    TraverseToParent();
                     CheckAndTraverseToParent();
                 }
-            }
-            else
-            {
-                TraverseToParent();
-                CheckAndTraverseToParent();
             }
         }
     }
